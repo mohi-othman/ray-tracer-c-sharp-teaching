@@ -1,0 +1,10 @@
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTraceLearning\obj\Debug\ResolveAssemblyReference.cache
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTraceLearning\bin\Debug\SystemDown.RayTracer.dll
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTraceLearning\bin\Debug\SystemDown.RayTracer.pdb
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTraceLearning\obj\Debug\SystemDown.RayTracer.dll
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTraceLearning\obj\Debug\SystemDown.RayTracer.pdb
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\bin\Debug\SystemDown.RayTracer.dll
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\bin\Debug\SystemDown.RayTracer.pdb
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\obj\Debug\SystemDown.RayTracer.dll
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\obj\Debug\SystemDown.RayTracer.pdb

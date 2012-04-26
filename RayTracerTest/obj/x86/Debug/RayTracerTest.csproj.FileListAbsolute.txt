@@ -1,0 +1,14 @@
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTracerTest\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTracerTest\bin\Debug\RayTracerTest.exe
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTracerTest\bin\Debug\RayTracerTest.pdb
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTracerTest\bin\Debug\SystemDown.RayTracer.dll
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTracerTest\bin\Debug\SystemDown.RayTracer.pdb
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTracerTest\obj\x86\Debug\RayTracerTest.exe
+c:\users\muhyedeno\documents\visual studio 2010\Projects\RayTraceLearning\RayTracerTest\obj\x86\Debug\RayTracerTest.pdb
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\obj\x86\Debug\RayTracerTest.exe
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\obj\x86\Debug\RayTracerTest.pdb
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\bin\Debug\RayTracerTest.exe
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\bin\Debug\RayTracerTest.pdb
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\bin\Debug\SystemDown.RayTracer.dll
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\bin\Debug\SystemDown.RayTracer.pdb
+C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\obj\x86\Debug\ResolveAssemblyReference.cache
