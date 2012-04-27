@@ -44,8 +44,11 @@
     <Compile Include="Cameras\ICamera.cs" />
     <Compile Include="Cameras\VerySimpleCamera.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="Lights\DirectionalLight.cs" />
+    <Compile Include="Lights\ILight.cs" />
     <Compile Include="Materials\Material.cs" />
     <Compile Include="Primitives\IPrimitive.cs" />
+    <Compile Include="Primitives\Plane.cs" />
     <Compile Include="Primitives\Sphere.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RayTracer.cs" />
@@ -53,6 +56,8 @@
     <Compile Include="RayTracerElements\Ray.cs" />
     <Compile Include="RayTracerElements\ViewPlane.cs" />
     <Compile Include="Scene.cs" />
+    <Compile Include="Shaders\DiffuseShader.cs" />
+    <Compile Include="Shaders\IShader.cs" />
     <Compile Include="Units\Color.cs" />
     <Compile Include="Units\Pixel.cs" />
     <Compile Include="Units\Vector3D.cs" />

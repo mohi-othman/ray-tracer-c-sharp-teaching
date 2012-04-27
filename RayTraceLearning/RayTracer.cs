@@ -62,8 +62,23 @@ namespace SystemDown.RayTracer
 
             if (cameraCollision.IsHit)  //The ray has hit an object
             {
-                //Set the pixel's color to be the same as the primitive we hit
-                TargetPixel.PixelColor = cameraCollision.HitObject.PrimitiveMaterial.DiffuseColor;
+                var pixelColor = new Color();   //Reset pixel's color to black
+
+                //Iterate through the lights and calculate their contribution
+                foreach (ILight light in SceneToRender.SceneLights)
+                {
+                    var lightDirection = light.GetLightDirection(cameraCollision.HitPoint);
+
+                    //Calculate the light's contribution to the color of the pixel using the scene's shader
+                    pixelColor += SceneToRender.SceneShader.GetColor(cameraCollision.HitObject,
+                                                                        light,
+                                                                        ray.Direction,
+                                                                        lightDirection,
+                                                                        cameraCollision.Normal);
+                }
+
+                //Set the pixel's color to be the calculated color
+                TargetPixel.PixelColor = pixelColor;
             }
             else //The ray did not hit anything
             {

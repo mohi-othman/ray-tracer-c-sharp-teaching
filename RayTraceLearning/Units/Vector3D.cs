@@ -21,13 +21,7 @@ namespace SystemDown.RayTracer
             y = Y;
             z = Z;
         }
-
-        //Returns a copy of the vector
-        public Vector3D Copy()
-        {
-            return new Vector3D(x, y, z);
-        }
-
+                
         //Dot product of two vectors
         public static double operator *(Vector3D a, Vector3D b)
         {
@@ -55,7 +49,11 @@ namespace SystemDown.RayTracer
         public static Vector3D operator *(Vector3D vector, double scalar)
         {
             return scalar * vector;
-        }                
+        }
+        public static Vector3D operator -(Vector3D vector)
+        {
+            return new Vector3D(-vector.x, -vector.y, -vector.z);
+        }
         public static Vector3D operator -(Vector3D start, Vector3D finish)
         {
             var xd = start.x - finish.x;

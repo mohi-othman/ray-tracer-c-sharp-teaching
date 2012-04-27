@@ -17,12 +17,20 @@ namespace SystemDown.RayTracer
         //Background color of the secne
         public Color BackgroundColor { get; set; }
 
+        //List of all light sources in the scene
+        public List<ILight> SceneLights { get; set; }
+
+        //Shader to be used in the scene
+        public IShader SceneShader { get; set; }
+
         //Constructor
-        public Scene(ICamera camera, List<IPrimitive> primitives, Color backgroundColor)
+        public Scene(ICamera camera, List<IPrimitive> primitives, Color backgroundColor, List<ILight> sceneLights, IShader sceneShader)
         {
             SceneCamera = camera;
             ScenePrimitives = primitives;
             BackgroundColor = backgroundColor;
+            SceneLights = sceneLights;
+            SceneShader = sceneShader;
         }
     }
 }
