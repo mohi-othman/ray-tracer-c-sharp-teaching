@@ -72,7 +72,7 @@ namespace SystemDown.RayTracer
             }
         }
 
-
+        //Tracing function. Calls the Intersect function on all primitives in the scene. Finds out if there is an intersection, and what object we hit
         private Collision Trace(Ray ray)
         {
             //Set the minimum distance to infinity

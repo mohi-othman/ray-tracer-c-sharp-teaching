@@ -8,3 +8,8 @@ C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\bin\Debug\System
 C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\obj\Debug\SystemDown.RayTracer.dll
 C:\Users\muhyedeno\Documents\RayTracerLearning\RayTraceLearning\obj\Debug\SystemDown.RayTracer.pdb
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTraceLearning\bin\Debug\SystemDown.RayTracer.dll
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTraceLearning\bin\Debug\SystemDown.RayTracer.pdb
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTraceLearning\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTraceLearning\obj\Debug\SystemDown.RayTracer.dll
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTraceLearning\obj\Debug\SystemDown.RayTracer.pdb

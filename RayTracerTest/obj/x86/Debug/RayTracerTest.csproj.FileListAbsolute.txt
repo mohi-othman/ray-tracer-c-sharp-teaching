@@ -12,3 +12,10 @@ C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\bin\Debug\RayTracer
 C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\bin\Debug\SystemDown.RayTracer.dll
 C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\bin\Debug\SystemDown.RayTracer.pdb
 C:\Users\muhyedeno\Documents\RayTracerLearning\RayTracerTest\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTracerTest\obj\x86\Debug\RayTracerTest.exe
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTracerTest\obj\x86\Debug\RayTracerTest.pdb
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTracerTest\bin\Debug\RayTracerTest.exe
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTracerTest\bin\Debug\RayTracerTest.pdb
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTracerTest\bin\Debug\SystemDown.RayTracer.dll
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTracerTest\bin\Debug\SystemDown.RayTracer.pdb
+C:\Users\Mohi\Documents\Visual Studio 2010\Projects\RayTraceLearning\RayTracerTest\obj\x86\Debug\ResolveAssemblyReference.cache
