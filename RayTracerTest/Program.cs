@@ -43,7 +43,7 @@ namespace RayTracerTest
             var dirLight = new DirectionalLight(new Vector3D(1, -1, 1), new Color(.7, .7, .7));
 
             //Create point light
-            var pointLight = new PointLight(new Vector3D(0, 10, 2), new Color(1, 1, 1));
+            var pointLight = new PointLight(new Vector3D(0, 10, 0), new Color(1, 1, 1));
             
             //Add lights to a list
             var lights = new List<ILight>();
@@ -53,8 +53,8 @@ namespace RayTracerTest
             //Instantiate scene, using a very dark gray as the background color
             var scene = new Scene(camera, objects, new Color(.1, .1, .1), lights, shader);
 
-            //Instantiate ray tracing engine to produce a 400 x 400 pixel image. Pixel size of 0.025 means the image will 10.0 x 10.0 in real world units.
-            var engine = new RayTracer(scene, 400, 400, 0.025);
+            //Instantiate ray tracing engine to produce a 1000 x 1000 pixel image. Pixel size of 0.0001 means the image will 10.0 x 10.0 in real world units.
+            var engine = new RayTracer(scene, 1000, 1000, 0.01);
 
             //Render the scene
             var view = engine.RenderScene();
