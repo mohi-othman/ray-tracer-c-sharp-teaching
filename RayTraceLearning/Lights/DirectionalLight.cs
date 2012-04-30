@@ -25,5 +25,10 @@ namespace SystemDown.RayTracer
             return -Direction;
         }
 
+        public double GetDistance(Vector3D targetPoint)
+        {
+            return Globals.Infinity;
+        }
+
     }
 }

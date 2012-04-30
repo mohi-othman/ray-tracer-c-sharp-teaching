@@ -23,33 +23,37 @@ namespace RayTracerTest
                         
             //Create red sphere
             var redSphere = new Sphere(new Vector3D(0, 0, 2), 2);
-            redSphere.PrimitiveMaterial = new Material(new Color(.8, .2, .2), 1.5);
+            redSphere.PrimitiveMaterial = new Material(new Color(.8, .2, .2), 1.0);
 
-            //Create blue sphere behind it
-            var blueSphere = new Sphere(new Vector3D(3, 1.5, 5), 2);
-            blueSphere.PrimitiveMaterial = new Material(new Color(.1, .1, .7), .7);
+            //Create reflective blue sphere behind it
+            var blueSphere = new Sphere(new Vector3D(5, 2.5, 7), 4);
+            blueSphere.PrimitiveMaterial = new Material(new Color(.1, .1, .7), .2, .8);
 
             //Create dark green plane under the spheres
             var greenPlane = new Plane(new Vector3D(0, 1, 0), 7);
-            greenPlane.PrimitiveMaterial = new Material(new Color(0, .5, 0));
-
+            greenPlane.PrimitiveMaterial = new Material(new Color(0, .5, 0), .3);
+                        
             //Add 3D objects to a list
             var objects = new List<IPrimitive>();
             objects.Add(redSphere);
             objects.Add(blueSphere);
             objects.Add(greenPlane);
-
+            
             //Create directional light
             var dirLight = new DirectionalLight(new Vector3D(1, -1, 1), new Color(.7, .7, .7));
 
+            //Create point light
+            var pointLight = new PointLight(new Vector3D(0, 10, 2), new Color(1, 1, 1));
+            
             //Add lights to a list
             var lights = new List<ILight>();
             lights.Add(dirLight);
+            lights.Add(pointLight);
 
             //Instantiate scene, using a very dark gray as the background color
             var scene = new Scene(camera, objects, new Color(.1, .1, .1), lights, shader);
 
-            //Instantiate ray tracing engine to produce a 400 x 400 pixel image. Pixel size of 0.01 means the image will 10.0 x 10.0 in real world units.
+            //Instantiate ray tracing engine to produce a 400 x 400 pixel image. Pixel size of 0.025 means the image will 10.0 x 10.0 in real world units.
             var engine = new RayTracer(scene, 400, 400, 0.025);
 
             //Render the scene

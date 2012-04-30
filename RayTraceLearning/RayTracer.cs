@@ -47,7 +47,7 @@ namespace SystemDown.RayTracer
                     var cameraRay = SceneToRender.SceneCamera.CreateRay(targetPixel);
 
                     //Ray trace
-                    RayTrace(cameraRay, targetPixel);
+                    RayTrace(cameraRay, targetPixel, 1);
                 }
             }
             return resultView;
@@ -55,36 +55,79 @@ namespace SystemDown.RayTracer
 
         //Main ray tracing function. Takes a ray and the target pixel 
         //Changes the contents of pixel according to the result of the ray tracing.
-        private void RayTrace(Ray ray, Pixel TargetPixel)
+        private void RayTrace(Ray ray, Pixel TargetPixel, int Level)
         {
+            //Exit function if we have exceeded maximum recursion depth
+            if (Level > Globals.MaxRecursionDepth)
+            {
+                return;
+            }
+
             //Trace the ray
             var cameraCollision = Trace(ray);
 
             if (cameraCollision.IsHit)  //The ray has hit an object
             {
-                var pixelColor = new Color();   //Reset pixel's color to black
+                var pixelColor = new Color();   //Reset light pixel's color to black
 
                 //Iterate through the lights and calculate their contribution
                 foreach (ILight light in SceneToRender.SceneLights)
                 {
                     var lightDirection = light.GetLightDirection(cameraCollision.HitPoint);
+                    var lightDistance = light.GetDistance(cameraCollision.HitPoint);
 
-                    //Calculate the light's contribution to the color of the pixel using the scene's shader
-                    pixelColor += SceneToRender.SceneShader.GetColor(cameraCollision.HitObject,
-                                                                        light,
-                                                                        ray.Direction,
-                                                                        lightDirection,
-                                                                        cameraCollision.Normal);
+                    //Construct ray from a point just outside the intersection point (to avoid hitting the same body) to light source. Used to find if object is in the shadows.
+                    var shadowRay = new Ray(cameraCollision.HitPoint + lightDirection * Globals.Epsilon, lightDirection);
+                                                            
+                    var shadowCollision = Trace(shadowRay);
+
+                    //When no collision occurs, it means there is nothing between the light source and the hit object. 
+                    //When collision occurs, but the collision distance is larger than the distance to the light source, it means there is nothing between the light source and the hit object. 
+                    //Calculate light contribution to color
+                    if (!shadowCollision.IsHit || shadowCollision.Distance > lightDistance) 
+                    {
+                        //Calculate the light's contribution to the color of the pixel using the scene's shader
+                        pixelColor += SceneToRender.SceneShader.GetColor(cameraCollision.HitObject,
+                                                                            light,
+                                                                            ray.Direction,
+                                                                            lightDirection,
+                                                                            cameraCollision.Normal);
+                    }                    
                 }
 
                 //Set the pixel's color to be the calculated color
                 TargetPixel.PixelColor = pixelColor;
+
+                //If reflection coeffecient is larger than 0, trace for reflection
+                if (cameraCollision.HitObject.PrimitiveMaterial.ReflectionCoeff > 0)
+                {
+                    TraceReflection(ray, cameraCollision.Normal, cameraCollision.HitPoint, cameraCollision.HitObject, TargetPixel, Level);
+                }
+                
             }
             else //The ray did not hit anything
             {
                 //Set the pixel's color to be the background color
                 TargetPixel.PixelColor = SceneToRender.BackgroundColor;
             }
+
+            
+        }
+
+        //Reflection rendering function
+        private void TraceReflection(Ray ray, Vector3D normal, Vector3D hitPoint, IPrimitive hitObject,Pixel TargetPixel, int Level)
+        {
+            //Calculate reflection direction
+            var reflectionDir = (ray.Direction - (2 * (ray.Direction * normal) * normal)).Normalize();
+
+            //Create reflection ray from just outside the intersection point, and trace it
+            var reflectionRay = new Ray(hitPoint + reflectionDir* Globals.Epsilon, reflectionDir);
+            
+            //New pixel object for the reflection
+            var reflectionPixel = new Pixel();
+            RayTrace(reflectionRay, reflectionPixel, Level + 1);
+
+            TargetPixel.PixelColor += reflectionPixel.PixelColor * hitObject.PrimitiveMaterial.ReflectionCoeff;
         }
 
         //Tracing function. Calls the Intersect function on all primitives in the scene. Finds out if there is an intersection, and what object we hit

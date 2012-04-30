@@ -13,5 +13,8 @@ namespace SystemDown.RayTracer
 
         //Get direction vector from the target point to the light source 
         Vector3D GetLightDirection(Vector3D targetPoint);
+
+        //Get distance from targetPoint to location of light source
+        double GetDistance(Vector3D targetPoint);
     }
 }

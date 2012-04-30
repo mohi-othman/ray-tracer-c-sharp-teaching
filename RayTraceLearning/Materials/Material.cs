@@ -12,7 +12,11 @@ namespace SystemDown.RayTracer
         public Color DiffuseColor { get; set; }
 
         //The diffuse coefficient of the material
-        public double  DiffuseCoeff { get; set; }
+        public double DiffuseCoeff { get; set; }
+                
+        //The reflection coefficient of the material
+        public double ReflectionCoeff { get; set; }
+               
 
         //Constructors
         public Material(Color diffuseColor)
@@ -25,6 +29,14 @@ namespace SystemDown.RayTracer
         {
             DiffuseColor = diffuseColor;
             DiffuseCoeff = diffuseCoeff;
+            ReflectionCoeff = 0;
+        }
+
+        public Material(Color diffuseColor, double diffuseCoeff, double reflectionCoeff)
+        {
+            DiffuseColor = diffuseColor;
+            DiffuseCoeff = diffuseCoeff;            
+            ReflectionCoeff = reflectionCoeff;
         }
     }
 }

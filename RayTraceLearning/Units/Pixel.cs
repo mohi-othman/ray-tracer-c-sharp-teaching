@@ -16,6 +16,11 @@ namespace SystemDown.RayTracer
         public Vector3D RealCoordinates { get; set; }
 
         //Constructor
+        public Pixel()
+        {
+            PixelColor = new Color();
+        }
+
         public Pixel(Color pixelColor, Vector3D coordinates)
         {
             PixelColor = pixelColor;

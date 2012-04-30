@@ -14,5 +14,8 @@ namespace SystemDown.RayTracer
         //Value to reprsent a very small value used in some calculation to avoid graphic 
         //artifacts due to number precision errors.
         public static double Epsilon = 0.0001d;
+
+        //Maximum recursion depth
+        public static int MaxRecursionDepth = 10;
     }
 }
