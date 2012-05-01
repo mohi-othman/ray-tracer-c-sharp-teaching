@@ -95,8 +95,8 @@ namespace SystemDown.RayTracer
                     }                    
                 }
 
-                //Set the pixel's color to be the calculated color
-                TargetPixel.PixelColor = pixelColor;
+                //Add the pixel's color to the calculated color
+                TargetPixel.PixelColor += pixelColor;
 
                 //If reflection coeffecient is larger than 0, trace for reflection
                 if (cameraCollision.HitObject.PrimitiveMaterial.ReflectionCoeff > 0)

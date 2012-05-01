@@ -53,7 +53,7 @@ namespace RayTracerTest
             //Instantiate scene, using a very dark gray as the background color
             var scene = new Scene(camera, objects, new Color(.1, .1, .1), lights, shader);
 
-            //Instantiate ray tracing engine to produce a 1000 x 1000 pixel image. Pixel size of 0.0001 means the image will 10.0 x 10.0 in real world units.
+            //Instantiate ray tracing engine to produce a 1000 x 1000 pixel image. Pixel size of 0.01 means the image will 10.0 x 10.0 in real world units.
             var engine = new RayTracer(scene, 1000, 1000, 0.01);
 
             //Render the scene
