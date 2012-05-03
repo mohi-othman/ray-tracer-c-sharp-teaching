@@ -59,6 +59,8 @@
     <Compile Include="Scene.cs" />
     <Compile Include="Shaders\DiffuseShader.cs" />
     <Compile Include="Shaders\IShader.cs" />
+    <Compile Include="Shaders\PhongShader.cs" />
+    <Compile Include="Shaders\SpecularShader.cs" />
     <Compile Include="Units\Color.cs" />
     <Compile Include="Units\Pixel.cs" />
     <Compile Include="Units\Vector3D.cs" />

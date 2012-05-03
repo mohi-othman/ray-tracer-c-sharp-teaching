@@ -54,7 +54,7 @@ namespace SystemDown.RayTracer
         }
 
         //Main ray tracing function. Takes a ray and the target pixel 
-        //Changes the contents of pixel according to the result of the ray tracing.
+        //Returns the color of the result of the ray tracing.
         private Color RayTrace(Ray ray, int Level)
         {
             //Exit function if we have exceeded maximum recursion depth

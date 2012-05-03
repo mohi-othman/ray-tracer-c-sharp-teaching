@@ -16,7 +16,12 @@ namespace SystemDown.RayTracer
                 
         //The reflection coefficient of the material
         public double ReflectionCoeff { get; set; }
-               
+
+        //Specular coefficient. Determines how much specular highlight contributes the material color.
+        public double SpecularCoeff { get; set; }
+
+        //Specular exponent. Determines how shiny the specular highlight is.
+        public double SpecularExponent { get; set; }
 
         //Constructors
         public Material(Color diffuseColor)

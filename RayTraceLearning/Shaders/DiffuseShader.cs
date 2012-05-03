@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Class to calculate diffuse shading using Lambert law
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ namespace SystemDown.RayTracer
 {
     public class DiffuseShader : IShader
     {
-        public Color GetColor(IPrimitive HitObject, ILight Light, Vector3D ViewDirection, Vector3D LightDirection, Vector3D Normal)
+        public  Color GetColor(IPrimitive HitObject, ILight Light, Vector3D ViewDirection, Vector3D LightDirection, Vector3D Normal)
         {
             //If diffuse coeffecient is zero, then no shading occurs
             if (HitObject.PrimitiveMaterial.DiffuseCoeff > 0)

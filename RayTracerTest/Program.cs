@@ -19,15 +19,21 @@ namespace RayTracerTest
             var camera = new VerySimpleCamera();
             
             //Instantiate shader
-            var shader = new DiffuseShader();
+            //var shader = new DiffuseShader();
+            var shader = new PhongShader();
+            
                         
             //Create red sphere
             var redSphere = new Sphere(new Vector3D(0, 0, 2), 2);
             redSphere.PrimitiveMaterial = new Material(new Color(.8, .2, .2), 1.0);
+            redSphere.PrimitiveMaterial.SpecularCoeff = .8;
+            redSphere.PrimitiveMaterial.SpecularExponent = 40;
 
             //Create reflective blue sphere behind it
             var blueSphere = new Sphere(new Vector3D(5, 2.5, 7), 4);
             blueSphere.PrimitiveMaterial = new Material(new Color(.1, .1, .7), .2, .8);
+            blueSphere.PrimitiveMaterial.SpecularCoeff = .5;
+            blueSphere.PrimitiveMaterial.SpecularExponent = 10;
 
             //Create dark green plane under the spheres
             var greenPlane = new Plane(new Vector3D(0, 1, 0), 7);
