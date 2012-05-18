@@ -71,7 +71,7 @@ namespace RayTracerTest
             //Save the image
             bmp.Save("output.bmp");
 
-            Console.WriteLine("Ray tracing done. Execution time: {0:d} ms", (DateTime.Now - time).Milliseconds);
+            Console.WriteLine("Ray tracing done. Execution time: {0:f} ms", (DateTime.Now - time).TotalMilliseconds);
             Console.ReadKey();
         }
     }
