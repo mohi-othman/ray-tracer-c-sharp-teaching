@@ -17,11 +17,15 @@ namespace SystemDown.RayTracer
         //Distance from origin of the ray to the intersection point
         public double Distance { get; set; }
 
-        //coordinates of the intersection point
+        //Coordinates of the intersection point
         public Vector3D HitPoint { get; set; }
 
         //Normal of the hit object at the intersection point
         public Vector3D Normal { get; set; }
+
+        //Is the ray originating from inside the 3D primitive?
+        public bool IsInside { get; set; }
+
         //Constructor
         public Collision(bool isHit) //Default constructor used to resent collision
         {
@@ -30,13 +34,14 @@ namespace SystemDown.RayTracer
             Distance = Globals.Infinity;            
         }
 
-        public Collision(bool isHit, IPrimitive hitObject, double distance, Vector3D normal, Vector3D hitPoint)
+        public Collision(bool isHit, IPrimitive hitObject, double distance, Vector3D normal, Vector3D hitPoint, bool isInside)
         {
             IsHit = isHit;
             HitObject = hitObject;
             Distance = distance;
             Normal = normal;
             HitPoint = hitPoint;
+            IsInside = isInside;
         }
     }
 }

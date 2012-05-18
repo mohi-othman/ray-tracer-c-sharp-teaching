@@ -23,11 +23,16 @@ namespace SystemDown.RayTracer
         //Specular exponent. Determines how shiny the specular highlight is.
         public double SpecularExponent { get; set; }
 
+        //Refraction Index. Zero means object blocks light completely.
+        public double RefractionIndex { get; set; }
+
         //Constructors
         public Material(Color diffuseColor)
         {
             DiffuseColor = diffuseColor;
             DiffuseCoeff = 1;
+            ReflectionCoeff = 0;
+            RefractionIndex = 0;
         }
 
         public Material(Color diffuseColor, double diffuseCoeff)
@@ -35,6 +40,7 @@ namespace SystemDown.RayTracer
             DiffuseColor = diffuseColor;
             DiffuseCoeff = diffuseCoeff;
             ReflectionCoeff = 0;
+            RefractionIndex = 0;
         }
 
         public Material(Color diffuseColor, double diffuseCoeff, double reflectionCoeff)
@@ -42,6 +48,7 @@ namespace SystemDown.RayTracer
             DiffuseColor = diffuseColor;
             DiffuseCoeff = diffuseCoeff;            
             ReflectionCoeff = reflectionCoeff;
+            RefractionIndex = 0;
         }
     }
 }

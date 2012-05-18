@@ -23,15 +23,16 @@ namespace RayTracerTest
             var shader = new PhongShader();
             
                         
-            //Create red sphere
-            var redSphere = new Sphere(new Vector3D(0, 0, 2), 2);
-            redSphere.PrimitiveMaterial = new Material(new Color(.8, .2, .2), 1.0);
+            //Create glass sphere
+            var redSphere = new Sphere(new Vector3D(0, -.2, 2), 2);
+            redSphere.PrimitiveMaterial = new Material(new Color(.8, .2, .2), .05);
             redSphere.PrimitiveMaterial.SpecularCoeff = .8;
             redSphere.PrimitiveMaterial.SpecularExponent = 40;
+            redSphere.PrimitiveMaterial.RefractionIndex = 2;
 
-            //Create reflective blue sphere behind it
+            //Create blue sphere behind it
             var blueSphere = new Sphere(new Vector3D(5, 2.5, 7), 4);
-            blueSphere.PrimitiveMaterial = new Material(new Color(.1, .1, .7), .2, .8);
+            blueSphere.PrimitiveMaterial = new Material(new Color(.1, .1, .7), .2);
             blueSphere.PrimitiveMaterial.SpecularCoeff = .5;
             blueSphere.PrimitiveMaterial.SpecularExponent = 10;
 

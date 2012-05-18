@@ -32,7 +32,7 @@ namespace SystemDown.RayTracer
                 if (distance > 0)   //when the distance is positive it means the plane is in front of us
                 {
                     var hitPoint = ray.Origin + (distance * ray.Direction);
-                    return new Collision(true, this, distance, Normal, hitPoint);
+                    return new Collision(true, this, distance, Normal, hitPoint, false);
                 }
             }
             return new Collision(false);

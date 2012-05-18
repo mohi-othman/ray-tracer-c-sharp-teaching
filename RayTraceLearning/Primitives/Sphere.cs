@@ -59,11 +59,11 @@ namespace SystemDown.RayTracer
             {
                 //Origin inside sphere                
                 var hitPoint1 = ray.Origin + ray.Direction * t1;
-                return new Collision(true, this, t1, GetNormal(hitPoint1), hitPoint1);   //Collision. Origin point is inside sphere.
+                return new Collision(true, this, t1, GetNormal(hitPoint1), hitPoint1, true);   //Collision. Origin point is inside sphere.
             }
 
             var hitPoint0 = ray.Origin + ray.Direction * t0;
-            return new Collision(true, this, t0, GetNormal(hitPoint0), hitPoint0);       //Collision. Origin point is outside sphere.
+            return new Collision(true, this, t0, GetNormal(hitPoint0), hitPoint0, false);       //Collision. Origin point is outside sphere.
         }
 
         //Get normal vector of the sphere's surface at hit point location

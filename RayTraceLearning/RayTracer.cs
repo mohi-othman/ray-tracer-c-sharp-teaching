@@ -94,12 +94,19 @@ namespace SystemDown.RayTracer
                                                                             cameraCollision.Normal);
                     }
                 }
-                
+
                 //If reflection coeffecient is larger than 0, trace for reflection
                 if (cameraCollision.HitObject.PrimitiveMaterial.ReflectionCoeff > 0)
                 {
                     //Add results of the reflection tracing
                     pixelColor += TraceReflection(ray, cameraCollision.Normal, cameraCollision.HitPoint, cameraCollision.HitObject, Level);
+                }
+
+                //If refractuib index is larger than 0, trace for refraction
+                if (cameraCollision.HitObject.PrimitiveMaterial.RefractionIndex > 0)
+                {
+                    //Add results of the reflection tracing
+                    pixelColor += TraceRefraction(ray, cameraCollision.Normal, cameraCollision.HitPoint, cameraCollision.HitObject, cameraCollision.IsInside, Level);
                 }
 
                 return pixelColor;
@@ -109,12 +116,10 @@ namespace SystemDown.RayTracer
                 //return the background color
                 return SceneToRender.BackgroundColor;
             }
-
-
         }
 
         //Reflection rendering function
-        private Color TraceReflection(Ray ray, Vector3D normal, Vector3D hitPoint, IPrimitive hitObject, int Level)
+        private Color TraceReflection(Ray ray, Vector3D normal, Vector3D hitPoint, IPrimitive hitObject,  int Level)
         {
             //Calculate reflection direction
             var reflectionDir = (ray.Direction - (2 * (ray.Direction * normal) * normal)).Normalize();
@@ -127,6 +132,44 @@ namespace SystemDown.RayTracer
 
             //Calculate final color
             var resultColor = reflectionColor * hitObject.PrimitiveMaterial.ReflectionCoeff;
+
+            return resultColor;
+        }
+
+        //Refraction rendering function
+        private Color TraceRefraction(Ray ray, Vector3D normal, Vector3D hitPoint, IPrimitive hitObject, bool isInside, int Level)
+        {
+            double originalRefIndex, newRefIndex;
+            Vector3D N;
+
+            if (!isInside)
+            {
+                //Ray is coming from outside the object
+                originalRefIndex = 1;
+                newRefIndex = hitObject.PrimitiveMaterial.RefractionIndex;
+                N = normal;
+            }
+            else
+            {
+                //Ray is coming from inside the object
+                originalRefIndex = hitObject.PrimitiveMaterial.RefractionIndex;
+                newRefIndex = 1;
+                N = -normal; //flip normal
+            }
+            
+            //Calculate refraction direction
+            //http://www.cs.unc.edu/~rademach/xroads-RT/RTarticle.html
+            var n = originalRefIndex / newRefIndex;
+            var c1 = -(N * ray.Direction);
+            var c2 = Math.Sqrt(1 - Math.Pow(n, 2) * (1 - Math.Pow(c1, 2)));
+
+            var refractionDirection = ((n * ray.Direction) + (n * c1 - c2) * N).Normalize();
+
+            //Create refraction ray from just outside the intersection point, and trace it
+            var refractionRay = new Ray(hitPoint + refractionDirection * Globals.Epsilon, refractionDirection);
+
+            //Get the color from the refraction
+            var resultColor = RayTrace(refractionRay, Level + 1);
 
             return resultColor;
         }
