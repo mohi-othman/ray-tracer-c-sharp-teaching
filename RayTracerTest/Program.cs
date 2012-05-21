@@ -25,10 +25,10 @@ namespace RayTracerTest
                         
             //Create glass sphere
             var redSphere = new Sphere(new Vector3D(0, -.2, 2), 2);
-            redSphere.PrimitiveMaterial = new Material(new Color(.8, .2, .2), .05);
+            redSphere.PrimitiveMaterial = new Material(new Color(.8, .2, .2), .1);
             redSphere.PrimitiveMaterial.SpecularCoeff = .8;
             redSphere.PrimitiveMaterial.SpecularExponent = 40;
-            redSphere.PrimitiveMaterial.RefractionIndex = 2;
+            redSphere.PrimitiveMaterial.RefractionIndex = 1.05;
 
             //Create blue sphere behind it
             var blueSphere = new Sphere(new Vector3D(5, 2.5, 7), 4);
